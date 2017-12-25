@@ -30,6 +30,23 @@ class ViewController: UIViewController {
         update(newVal: sender.value)
     }
     
+    @IBAction func onPan(_ sender: UIPanGestureRecognizer) {
+        let vertVelocity = -Float(sender.velocity(in: view).y)
+        var newVal = brightnessSlider.value
+        
+        if abs(vertVelocity) > 15 {
+            newVal += 0.00005 * vertVelocity
+        }
+        
+        if newVal > 1.0 {
+            newVal = 1.0
+        } else if newVal < 0.0 {
+            newVal = 0.0
+        }
+        
+        update(newVal: newVal)
+    }
+    
     // Updates the screen brightness, background color, and torch level
     func update(newVal: Float) {
         //breaking out the update into smaller, more manageable/editable functions

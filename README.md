@@ -12,3 +12,4 @@ Modifications:
 * Added control over the device's flashlight (torch)
 * Added slider for abilitiy to adjust flashlight level
 * Added support for display brightness with the slider
+* Added pan gesture recognizer so that user can swipe on the screen to adjust brightness levels
